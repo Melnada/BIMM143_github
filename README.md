@@ -1,2 +1,2 @@
 # BIMM143_github
-My class work for BIMM 143 at UC San Diego.
+My class work for [BIMM 143](https://bioboot.github.io/bimm143_W26/) at UC San Diego.
