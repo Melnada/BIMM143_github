@@ -1,0 +1,117 @@
+---
+title: "class11"
+author: Melanda Aboueid (PID A17473102)
+format: pdf
+---
+
+## Background 
+
+We saw last day that the main repositonary for biomolecular structure (the PDB database) only has about 250,000 entries.
+
+UniProtKB (the main protien sequence database) has over 200 million entries! 
+
+In this hands-on session we will utilize AlphaFold to predict protein structure from sequence (Jumper et al. 2021).
+
+Without the aid of such approaches, it can take years of expensive laboratory work to determine the structure of just one protein. With AlphaFold we can now accurately compute a typical protein structure in as little as ten minutes.
+
+## The EBI AlphaFold database
+
+The EBI alphafold database contains lots of computed structure models. It is increasing likely that the structure you are intreased in is already in this database at <https://alphafold.ebi.ac.uk/>
+
+There are 3 major outputs from AlphaFold 
+
+1. A model of structure in PDB format,
+2. a pLDDT score: that tells us how confident the model is for a given residue in your protien (High valuses are good, above 70) 
+3. a **PAE score** that tells us about protien packing quality. 
+
+If you can't find a matching entry fir the sequence you are intreasted in AFDB you can run AlphaFold yourself...
+
+## Running AlphaFold 
+We will use Colab <https://github.com/sokrypton/ColabFold>
+
+Figure from AlphaFold here!
+```{r}
+knitr::include_graphics("Picture.png")
+```
+
+
+## Interpreting results 
+
+coustom analysis of resulting models 
+
+we can read all AlphaFold results into R 
+
+```{r}
+results_dir <- "hivpr_23119_0"
+
+pdb_files <- list.files(path = results_dir, pattern = "\\.pdb$",
+     full.names = TRUE)
+
+basename(pdb_files)
+```
+
+```{r}
+library(bio3d)
+pdbs <- pdbaln(pdb_files, fit = TRUE, exefile = "msa")
+pdbs
+```
+
+
+```{r}
+#pdbs
+```
+
+Similarity and diffrences between the models 
+
+```{r}
+rd <- rmsd(pdbs, fit=TRUE)
+
+```
+
+```{r}
+range(rd)
+```
+```{r}
+library(pheatmap)
+
+colnames(rd) <- paste0("m",1:5)
+rownames(rd) <- paste0("m",1:5)
+
+pheatmap(rd)
+```
+
+Models with lower RMSD values are more structurally similar. Clustering in the heatmap indicates which predictions agree most strongly.
+
+```{r}
+plotb3(pdbs$b[1,], typ="l", lwd=2,
+       ylab="pLDDT", xlab="Residue")
+
+points(pdbs$b[2,], col="red", typ="l")
+points(pdbs$b[3,], col="blue", typ="l")
+points(pdbs$b[4,], col="green", typ="l")
+points(pdbs$b[5,], col="purple", typ="l")
+```
+
+Most show high pLDDT scores so they are reliable predictions. The Lower scores suggest flexible or disordered regions.
+
+```{r}
+library(jsonlite)
+
+pae_files <- list.files(path=results_dir,
+                        pattern=".*model.*\\.json$",
+                        full.names=TRUE)
+
+pae_files
+```
+```{r}
+pae1 <- read_json(pae_files[1], simplifyVector=TRUE)
+
+str(pae1)
+```
+```{r}
+plot.dmat(pae1$pae,
+          xlab="Residue i",
+          ylab="Residue j")
+```
+
+The PAE plot is mostly low (blue), indicating high confidence in residue positioning, with a few higher-error regions showing minor uncertainty in domain packing but overall a reliable model.
