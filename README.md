@@ -1,15 +1,12 @@
-# BIMM143_github
+# Portfilio
 My class work for [BIMM 143](https://bioboot.github.io/bimm143_W26/) at UC San Diego.
 
 
+## Index of Material
 
-ssh -i ~/Downloads/bimm143_melanda.pem ubuntu@ec2-54-213-120-254.us-west-2.compute.amazonaws.com
+*Introductory material*
 
-to copy from my AWS instnace 
-scp -i ~/Downloads/bimm143_melanda.pem ubuntu@ec2-54-213-120-254.us-west-2.compute.amazonaws.com:~/work/results.tsv .
+- class 04 [Intro to R][class04/class04.pdf]
 
-## Class 17 AWS instance adresses
-
-ssh -i "~/Downloads/bimm143_melanda.pem" ubuntu@ec2-52-40-205-167.us-west-2.compute.amazonaws.com
-
-
+- class 05 [Data viz with ggplot][class05/class05.pdf]
+>>>>>>> ce87d50cde5fa2ba6be62e55ff23c38a2da00597
