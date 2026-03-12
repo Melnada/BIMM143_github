@@ -36,5 +36,5 @@ My class work for [BIMM 143](https://bioboot.github.io/bimm143_W26/) at UC San D
 
 - class 18 [Mini Project: Investigating Pertussis Resurgence](Class18/Class18.pdf)
 
-- class 19 [Mini Project: Cancer Mutation Analysist](BIMM143/BIMM143_github.Rproj)
+- class 19 [Mini Project: Cancer Mutation Analysist](lab19/lab19.pdf)
   
