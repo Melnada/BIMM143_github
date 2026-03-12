@@ -28,11 +28,11 @@ My class work for [BIMM 143](https://bioboot.github.io/bimm143_W26/) at UC San D
 
 - class 14 [RNA-Seq analysis mini-project](class14/class14.pdf)
 
-- class 15 [Hands-on with Git and GitHub](class15/class15.Rproj)
+- class 15 [Hands-on with Git and GitHub](class15/class15.pdf)
 
 - class 16 [Essential UNIX for bioinformatics](class16/unix_notes.md)
 
-- class 17 [Analyzing sequencing data in the cloud](class17/class17.Rproj)
+- class 17 [Analyzing sequencing data in the cloud](class17/class17.pdf)
 
 - class 18 [Mini Project: Investigating Pertussis Resurgence](class18/Class18.pdf)
 
