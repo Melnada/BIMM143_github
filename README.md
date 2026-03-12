@@ -30,11 +30,11 @@ My class work for [BIMM 143](https://bioboot.github.io/bimm143_W26/) at UC San D
 
 - class 15 [Hands-on with Git and GitHub](class15/class15.Rproj)
 
-- class 16 [Essential UNIX for bioinformatics](unix/unix_notes.md)
+- class 16 [Essential UNIX for bioinformatics](class16/unix_notes.md)
 
 - class 17 [Analyzing sequencing data in the cloud](class17/class17.Rproj)
 
-- class 18 [Mini Project: Investigating Pertussis Resurgence](Class18/Class18.pdf)
+- class 18 [Mini Project: Investigating Pertussis Resurgence](class18/Class18.pdf)
 
 - class 19 [Mini Project: Cancer Mutation Analysist](class19/lab19.pdf)
   
